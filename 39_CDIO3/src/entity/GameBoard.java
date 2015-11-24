@@ -2,11 +2,9 @@ package entity;
 
 import java.awt.Color;
 
-import entity.Field;
-
 public class GameBoard {
 
-private static Field[] gameboard;
+private  Field[] gameboard;
 
 
 public GameBoard(){
@@ -34,7 +32,7 @@ public GameBoard(){
 	gameboard[20] = new Fleet("Privateer armade",Color.GRAY,Color.RED,"swag",4000,null,false);
 	
 }
-public MyField getField  (int fieldNumber){
+public Field getField  (int fieldNumber){
 	return  gameboard[fieldNumber];
 }
 

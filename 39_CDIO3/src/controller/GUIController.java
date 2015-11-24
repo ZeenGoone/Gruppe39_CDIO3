@@ -7,12 +7,11 @@ import desktop_codebehind.Car;
 import desktop_fields.Field;
 import desktop_fields.Street;
 import desktop_resources.GUI;
-import entities.DiceCup;
-import entities.Player;
-import entities.GameBoard;
-import entities.MyField;
-import entities.Player;
-import controllers.GameController;
+import entity.Player;
+import entity.GameBoard;
+import entity.Field;
+import entity.Player;
+import controller.GameController;
 
 
 public class GUIController {

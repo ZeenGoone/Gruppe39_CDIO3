@@ -14,10 +14,11 @@ public class Player {
 	public Player(){
 		++maxPlayers;
 		playerPiece = new Piece(maxPlayers);
+		setBalance(startAmount);
 	}
 
 	// opdaterer spillerens beholdning
-	public int updateAmount(int updating){
+	public int updateBalance(int updating){
 		return account.addBalance(updating);
 	}
 	
@@ -45,8 +46,8 @@ public class Player {
 		return fleetCount;
 	}
 
-	public void setFleetCount(int fleetCount) {
-		this.fleetCount = fleetCount;
+	public void addFleetsOwned() {
+		this.fleetCount++ ;
 	}
 	
 	

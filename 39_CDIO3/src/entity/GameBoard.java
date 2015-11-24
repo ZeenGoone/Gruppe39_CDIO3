@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class GameBoard {
 
-private static Field[] gameboard;
+private  Field[] gameboard;
 
 
 public GameBoard(){

@@ -9,7 +9,7 @@ public class Territory extends Ownable {
 	public Territory(String fieldName, Color forgroundColor, Color backgroundColor, String description, int price,
 			Player owner,  int rent, boolean isOwned) {
 		
-		super(fieldName, forgroundColor, backgroundColor, description, price, owner, isOwned);
+		super(fieldName, price, forgroundColor, backgroundColor, description, owner, isOwned);
 		
 		this.rent = rent;
 	}
@@ -36,7 +36,7 @@ public class Territory extends Ownable {
 			//sætter ham som ejer og tager penge
 			setOwner(player);
 			player.updateBalance(-getPrice());
-			isOwned= true;
+			setOwned(true);
 			System.out.println(player.getPiece().getPlayerName() + "just bought" + getFieldName());
 		}
 	}

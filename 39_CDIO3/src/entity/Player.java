@@ -14,6 +14,7 @@ public class Player {
 	public Player(){
 		++maxPlayers;
 		playerPiece = new Piece(maxPlayers);
+		setBalance(startAmount);
 	}
 
 	// opdaterer spillerens beholdning

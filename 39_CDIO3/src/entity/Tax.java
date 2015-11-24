@@ -2,13 +2,14 @@ package entity;
 
 import java.awt.Color;
 
-public class Tax {
+public class Tax extends Field {
 
 	private String description;
 	private int price;
 
 	public Tax(String fieldName, Color forgroundColor, Color backgroundColor, String description, int price) {
 
+		super(fieldName, forgroundColor, backgroundColor, description);
 		this.price = price;
 		this.description = description;
 	}

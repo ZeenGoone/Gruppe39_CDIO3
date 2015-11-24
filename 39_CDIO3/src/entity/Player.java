@@ -45,8 +45,8 @@ public class Player {
 		return fleetCount;
 	}
 
-	public void setFleetCount(int fleetCount) {
-		this.fleetCount = fleetCount;
+	public void addFleetsOwned() {
+		this.fleetCount++ ;
 	}
 	
 	

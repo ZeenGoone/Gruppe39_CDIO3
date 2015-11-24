@@ -7,6 +7,8 @@ public class Player {
 	private int startAmount = 30000;
 	private Account account = new Account();
 	private Piece playerPiece;
+	private boolean isBankrupt = false;
+	private int fleetCount;
 
 	// Konstruktoer tae�ller maxspillere 1 op og en brik bliver tildelt med et spillernummer
 	public Player(){
@@ -30,5 +32,23 @@ public class Player {
 	public Piece getPiece(){
 		return this.playerPiece;
 	}
+
+	public boolean isBankrupt() {
+		return isBankrupt;
+	}
+
+	public void setBankrupt(boolean isBankrupt) {
+		this.isBankrupt = isBankrupt;
+	}
+
+	public int getFleetCount() {
+		return fleetCount;
+	}
+
+	public void setFleetCount(int fleetCount) {
+		this.fleetCount = fleetCount;
+	}
+	
+	
 	
 }

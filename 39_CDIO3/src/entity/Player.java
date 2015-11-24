@@ -17,7 +17,7 @@ public class Player {
 	}
 
 	// opdaterer spillerens beholdning
-	public int updateAmount(int updating){
+	public int updateBalance(int updating){
 		return account.addBalance(updating);
 	}
 	

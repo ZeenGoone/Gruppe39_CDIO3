@@ -1,11 +1,11 @@
-package entity;
+	package entity;
 
 public class Account {
 
 	private int startAmount = 30000;
 	private int balance;
 	
-	Account () {
+	public Account () {
 		this.balance = startAmount;
 	}
 	

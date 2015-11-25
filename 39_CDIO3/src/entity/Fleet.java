@@ -11,7 +11,7 @@ public class Fleet extends Ownable {
 	private int rent4 = 4000;
 
 	//konstruktor
-	public Fleet( String fieldName, int price, Color foregroundColor, Color backColor, String description, Player owner, boolean isowned) {
+	public Fleet( String fieldName, Color foregroundColor, Color backColor, String description, int price, Player owner, boolean isowned) {
 		super(fieldName, price, foregroundColor, backColor, description, owner, isowned);
 	}
 

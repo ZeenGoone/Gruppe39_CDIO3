@@ -7,6 +7,7 @@ public class Player {
 	private int startAmount = 30000;
 	private Account account = new Account();
 	private Piece playerPiece;
+	private int totalSum;
 	private boolean isBankrupt = false;
 	private int fleetCount;
 	private int laborCampCount;
@@ -34,6 +35,22 @@ public class Player {
 	public Piece getPiece(){
 		return this.playerPiece;
 	}
+	
+	public int getTotalSum() {
+		if(totalSum>21){
+			this.totalSum = totalSum-21;
+		}
+		return totalSum;
+	}
+
+
+	public void addTotalSum(int totalSum) {
+		this.totalSum += totalSum;
+	}
+
+	
+	
+	
 
 	public boolean isBankrupt() {
 		return isBankrupt;

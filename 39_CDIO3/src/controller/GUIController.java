@@ -9,7 +9,6 @@ import desktop_fields.Street;
 import desktop_resources.GUI;
 import entity.Player;
 import entity.GameBoard;
-import entity.Field;
 import entity.Player;
 import controller.GameController;
 
@@ -76,16 +75,32 @@ Car car6 = setCar(Color.WHITE, Color.MAGENTA);
 Car car7 = setCar(Color.ORANGE, Color.RED);
 
 
-public int choosePlayers(String besked,int min,int max){
-	int players = GUI.getUserInteger(besked);
-	
-	
-	for(int i = 0; i<=players-1 ;i++){
-		carArray = new Car[]{car1,car2,car3,car4,car5,car6,car7};
-		GUI.addPlayer("Player " + (i+1),30000,carArray[i]);
+//public int choosePlayers(String besked,int min,int max){
+//	int players = GUI.getUserInteger(besked);
+//	
+//	
+//	for(int i = 0; i<=players-1 ;i++){
+//		carArray = new Car[]{car1,car2,car3,car4,car5,car6,car7};
+//		GUI.addPlayer("Player " + (i+1),30000,carArray[i]);
+//	}
+//	return players;
+//	}
+
+
+//sender en besked og knaptekst til GUI via 
+	public int GUIbuttons5(String beskedtekst, String knaptekst1, String knaptekst2, String knaptekst3, String knaptekst4, String knaptekst5){
+	String players = 	GUI.getUserButtonPressed(beskedtekst, knaptekst1, knaptekst2, knaptekst3, knaptekst4, knaptekst5);
+	int pn = Integer.parseInt(players);
+		
+		for(int i = 0; i<=pn-1 ;i++){
+			carArray = new Car[]{car1,car2,car3,car4,car5,car6};
+			GUI.addPlayer("Player " + (i+1),30000,carArray[i]);
+		}
+		
+		return pn ;
 	}
-	return players;
-	}
+
+
 
 //updater spillerscore
 public void updatesPlayerScore(Player player){

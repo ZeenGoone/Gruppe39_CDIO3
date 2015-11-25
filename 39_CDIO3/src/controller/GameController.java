@@ -1,43 +1,83 @@
 package controller;
 
+import controller.GUIController;
 import desktop_resources.GUI;
+import controller.DiceCup;
+import entity.GameBoard;
 import entity.Player;
 
 public class GameController {
+	private static GameBoard gb;
+	private static GUIController gc;
+	private static DiceCup dc;
 
-	private static Player PlayerArray[];
+	private static Player playerArray[];
+	public static void main(String args[]){
 
-
-// Metode til at finde antal spillere, skal nok flyttes når vi har et bedre sted for den.
-	public static void selectPlayers () {
+		gb = new GameBoard();
+		gc = new GUIController(gb);
+		dc = new DiceCup();
+		gc.startGame();	
 
 		// Finder ud af hvor mange spillere der er, og returnere det som en int
+
 		
-		String X = GUIbuttons5("How many players are you?", "2", "3", "4", "5", "6");	
-		int numberOfPlayers = Integer.parseInt(X);
+		int numberOfPlayers = gc.GUIbuttons5("How  many players", "2", "3", "4", "5", "6");
 
 		// Placere spillere ind i et array, og laver spillere tilsvarende til antallet Bruger har angivet
 
-		PlayerArray = new Player[numberOfPlayers];
+		playerArray = new Player[numberOfPlayers];
 
-		for (int Z = 0 ; Z <= numberOfPlayers - 1 ; Z++) {
-			PlayerArray[Z] = new Player();
+		for (int i = 0 ; i <= numberOfPlayers - 1 ; i++) {
+			playerArray[i] = new Player();
+
+			System.out.println("Vi har Spiller: " + (i+1));
+		}
 
 
-			System.out.println("Vi har Spiller: " + (Z+1));
+		while(true){
+			for(int j=0;j<playerArray.length;j++){
+
+				playRound(playerArray[j]);
+				gc.showMessage("Current tur: Player" + (j+1));	
+			}
 
 		}
+
+
+	}
+
+	public static void playRound(Player p){
 		
+		fjernAlt(p);
+		
+		//kaster med terning
+		dc.RollDices();
+		
+		//sætter ternings øjne på GUI
+		gc.setDices(dc);
+		
+		
+
+		// tilføjer slaget til spillerens totale sum
+		p.addTotalSum(dc.getSum());
+
+		//rykker spillerens brik, så langt som spilleren har slået
+		movePiece(p,p.getTotalSum());
+
+		//afgører hvad der sker
+		gb.getField(p.getTotalSum()-1).landOnField(p);
+		
+		
+		//updater player score
+		gc.updatesPlayerScore(p);
 	}
-	// sender en besked og knaptekst til GUI via 
-	public static String GUIbuttons5(String beskedtekst, String knaptekst1, String knaptekst2, String knaptekst3, String knaptekst4, String knaptekst5){
-		return GUI.getUserButtonPressed(beskedtekst, knaptekst1, knaptekst2, knaptekst3, knaptekst4, knaptekst5);
+
+	public static void movePiece(Player p, int field){
+		gc.placePiece(p, field);
 	}
-
-
-
+	public static void fjernAlt(Player p){
+		gc.remooveCar(p);
+	}
 
 }
-
-
-

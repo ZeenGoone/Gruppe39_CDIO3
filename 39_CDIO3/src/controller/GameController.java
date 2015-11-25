@@ -37,7 +37,8 @@ public static boolean  vinder = false;
 
 		while(!vinder){
 			for(int j=0;j<playerArray.length;j++){
-				if(j==2)continue;
+				if(playerArray[j].isBankrupt())
+					continue;
 				playRound(playerArray[j]);
 				gc.showMessage("Current tur: Player" + (j+1));	
 			}

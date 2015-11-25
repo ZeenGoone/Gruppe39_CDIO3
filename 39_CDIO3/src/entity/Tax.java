@@ -24,7 +24,7 @@ public class Tax extends Field {
 
 
 
-		if (alternative == true) {
+		if (alternative) {
 			if(((player.getBalance())/10) >= getPrice()){
 				player.updateBalance(-getPrice());
 				System.out.println(description);

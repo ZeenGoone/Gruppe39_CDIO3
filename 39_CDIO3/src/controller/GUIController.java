@@ -72,22 +72,13 @@ Car car3 = setCar(Color.BLUE, Color.GRAY);
 Car car4 = setCar(Color.PINK, Color.GREEN);
 Car car5 = setCar(Color.CYAN, Color.BLACK);
 Car car6 = setCar(Color.WHITE, Color.MAGENTA);
-Car car7 = setCar(Color.ORANGE, Color.RED);
 
 
-//public int choosePlayers(String besked,int min,int max){
-//	int players = GUI.getUserInteger(besked);
-//	
-//	
-//	for(int i = 0; i<=players-1 ;i++){
-//		carArray = new Car[]{car1,car2,car3,car4,car5,car6,car7};
-//		GUI.addPlayer("Player " + (i+1),30000,carArray[i]);
-//	}
-//	return players;
-//	}
 
 
-//sender en besked og knaptekst til GUI via 
+
+
+//sender en besked og knaptekster der spørger om hvor mange spillere der skal med
 	public int GUIbuttons5(String beskedtekst, String knaptekst1, String knaptekst2, String knaptekst3, String knaptekst4, String knaptekst5){
 	String players = 	GUI.getUserButtonPressed(beskedtekst, knaptekst1, knaptekst2, knaptekst3, knaptekst4, knaptekst5);
 	int pn = Integer.parseInt(players);

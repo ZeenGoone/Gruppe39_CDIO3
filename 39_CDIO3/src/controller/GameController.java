@@ -10,7 +10,7 @@ public class GameController {
 	private static GameBoard gb;
 	private static GUIController gc;
 	private static DiceCup dc;
-
+public static boolean  vinder = false;
 	private static Player playerArray[];
 	public static void main(String args[]){
 
@@ -35,9 +35,9 @@ public class GameController {
 		}
 
 
-		while(true){
+		while(!vinder){
 			for(int j=0;j<playerArray.length;j++){
-
+				if(j==2)continue;
 				playRound(playerArray[j]);
 				gc.showMessage("Current tur: Player" + (j+1));	
 			}
@@ -71,6 +71,10 @@ public class GameController {
 		
 		//updater player score
 		gc.updatesPlayerScore(p);
+		if(p.getBalance()<=0)
+			p.setBankrupt(true);;
+		
+		System.out.println(p.isBankrupt());
 	}
 
 	public static void movePiece(Player p, int field){
@@ -79,5 +83,12 @@ public class GameController {
 	public static void fjernAlt(Player p){
 		gc.remooveCar(p);
 	}
+	//Leger med bankruptchecker
+//	public static void bankruptChecker(Player p){
+//		for(int j=0;j<playerArray.length;j++){
+//			if(p.isBankrupt())
+//			
+//		}
+//	}
 
 }

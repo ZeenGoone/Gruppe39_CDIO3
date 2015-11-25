@@ -9,6 +9,7 @@ public class Player {
 	private Piece playerPiece;
 	private boolean isBankrupt = false;
 	private int fleetCount;
+	private int laborCampCount;
 
 	// Konstruktoer tae�ller maxspillere 1 op og en brik bliver tildelt med et spillernummer
 	public Player(){
@@ -50,6 +51,13 @@ public class Player {
 		this.fleetCount++ ;
 	}
 	
+	public int getLaborCampCount() {
+		return laborCampCount;
+	}
+
+	public void addLaborCampsOwned() {
+		this.laborCampCount++ ;
+	}
 	
 	
 }

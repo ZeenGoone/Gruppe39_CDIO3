@@ -22,8 +22,8 @@ public GameBoard(){
 	gameboard[10] = new Territory("Castle", Color.PINK, Color.LIGHT_GRAY,"Du har fundet en skat i taarnet, og finder 250, heldige dig.",8000,null,4000, false);
 	gameboard[11] = new Refuge("Walled city", Color.BLUE,Color.YELLOW,"Du blev bollet i røven",5000);
 	gameboard[12] = new Refuge("Monastery", Color.BLUE, Color.YELLOW,"Du blev bollet i røven",500);
-	gameboard[13] = new LaborCamp("Huts in the mountain",Color.GRAY,Color.CYAN,"swag",2500,null,false,0);
-	gameboard[14] = new LaborCamp("The pit",Color.GRAY,Color.CYAN,"swag",2500,null,false,0);
+	gameboard[13] = new LaborCamp("Huts in the mountain",Color.GRAY,Color.CYAN,"swag",2500,null,100,false);
+	gameboard[14] = new LaborCamp("The pit",Color.GRAY,Color.CYAN,"swag",2500,null,100,false);
 	gameboard[15] = new Tax("Goldmine",Color.GRAY,Color.BLUE,"swag",2000,false);
 	gameboard[16] = new Tax("Caravan",Color.GRAY,Color.BLUE,"You ran into a Caravan, and had to pay alot to get free of them again.",4000,true);
 	gameboard[17] = new Fleet("Second Sail",Color.GRAY,Color.ORANGE,"swag",4000,null,false);

@@ -6,12 +6,14 @@ public class Tax extends Field {
 
 	private String description;
 	private int price;
+	private boolean alternative;
 
-	public Tax(String fieldName, Color forgroundColor, Color backgroundColor, String description, int price) {
+	public Tax(String fieldName, Color forgroundColor, Color backgroundColor, String description, int price, boolean alternative) {
 
 		super(fieldName, forgroundColor, backgroundColor, description);
 		this.price = price;
 		this.description = description;
+		this.alternative = alternative;
 	}
 
 
@@ -20,16 +22,24 @@ public class Tax extends Field {
 
 		//Spilleren betaler enten 10% af Balance eller 4000, alt efter hvad der koster ham mindst
 
-		if(((player.getBalance())/10) >= getPrice()){
-			player.updateBalance(-getPrice());
-			System.out.println(description);
 
+
+		if (alternative == true) {
+			if(((player.getBalance())/10) >= getPrice()){
+				player.updateBalance(-getPrice());
+				System.out.println(description);
+
+			}
+			else{
+				if(((player.getBalance())/10) < getPrice()){
+					player.updateBalance(-((player.getBalance())/10));
+					System.out.println(description);
+				}
+			}
 		}
 		else{
-			if(((player.getBalance())/10) < getPrice()){
-				player.updateBalance(-((player.getBalance())/10));
-				System.out.println(description);
-			}
+			player.updateBalance(-getPrice());
+			System.out.println(description);
 		}
 	}	
 
@@ -41,7 +51,7 @@ public class Tax extends Field {
 		this.price = price;
 	}
 
-	
+
 
 }
 

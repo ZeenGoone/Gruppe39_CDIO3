@@ -47,6 +47,10 @@ public class LaborCamp  extends Ownable {
 		}
 	}
 	else{
+		if(getOwner().getBalance()<=0){
+			System.out.println("owner is ded LOL");
+		}
+		else{
 		dc = new DiceCup();
 		dc.RollDices();
 		
@@ -59,5 +63,5 @@ public class LaborCamp  extends Ownable {
 	}
 	}	
 		
-	
+	}
 }

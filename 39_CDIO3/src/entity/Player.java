@@ -49,8 +49,6 @@ public class Player {
 	}
 
 	
-	
-	
 
 	public boolean isBankrupt() {
 		return isBankrupt;

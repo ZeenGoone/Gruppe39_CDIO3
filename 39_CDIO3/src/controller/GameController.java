@@ -39,6 +39,7 @@ public class GameController {
 
 
 		while(!vinder){
+			bankruptChecker();
 			for(int j=0;j<playerArray.length;j++){
 				if(playerArray[j].isBankrupt())
 					continue;
@@ -46,7 +47,7 @@ public class GameController {
 				playRound(playerArray[j]);
 			
 			}
-			bankruptChecker();
+		
 		}
 
 
@@ -73,13 +74,16 @@ public class GameController {
 		//afgører hvad der sker
 		gb.getField(p.getTotalSum()-1).landOnField(p);
 		
-		//Fortæller spilleren hvad han landte på
-		gc.showMessage(p.getPiece().getPlayerName()+"landed on " + gb.getField(p.getTotalSum()-1).getFieldName());
 		
 		//updater player score for alle spiller
 		for(int j=0;j<playerArray.length;j++){
 			gc.updatesPlayerScore(playerArray[j]);
 		}
+		
+		//Fortæller spilleren hvad han landte på
+		gc.showMessage(p.getPiece().getPlayerName()+"landed on " + gb.getField(p.getTotalSum()-1).getFieldName());
+		
+		
 		//tjekker om nogle er gået bankerot og tælkler 1 om hvis de er
 		if(p.getBalance()<=0){
 			gc.showMessage(p.getPiece().getPlayerName() + "er gået kold ");

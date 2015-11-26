@@ -6,7 +6,7 @@ private int DiceEyes;
 private int DiceSides;
 	
 public Dice(){
-	DiceSides= 1;
+	DiceSides= 6;
 	
 }
 

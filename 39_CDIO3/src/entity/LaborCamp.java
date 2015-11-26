@@ -2,13 +2,14 @@ package entity;
 
 import java.awt.Color;
 import controller.DiceCup;
+import desktop_resources.GUI;
 
 
 public class LaborCamp  extends Ownable {
 
 	private int rent;
-	private DiceCup diceCup;
-	
+	private  DiceCup dc;
+
 	
 	public LaborCamp(String fieldName, Color forgroundColor, Color backgroundColor, String description, int price,
 			Player owner,  int rent, boolean isOwned) {
@@ -46,12 +47,15 @@ public class LaborCamp  extends Ownable {
 		}
 	}
 	else{
-		diceCup.RollDices();
+		dc = new DiceCup();
+		dc.RollDices();
 		
-		getOwner().updateBalance((getRent())*(diceCup.getSum())*(getOwner().getLaborCampCount()));
-		player.updateBalance(-((getRent())*(diceCup.getSum())*(getOwner().getLaborCampCount())));
-		System.out.println("The dices rolled a total of " + diceCup.getSum());
-		System.out.println(player.getPiece().getPlayerName() + " just payed " + getOwner());
+		GUI.showMessage("You rolled : " + dc.getSum());
+		getOwner().updateBalance((getRent())*(dc.getSum())*(getOwner().getLaborCampCount()));
+		System.out.println(getRent()*(dc.getSum())*(getOwner().getLaborCampCount()));
+		player.updateBalance(-((getRent())*(dc.getSum())*(getOwner().getLaborCampCount())));
+		System.out.println("The dices rolled a total of " + dc.getSum());
+		System.out.println(player.getPiece().getPlayerName() + " just payed " + getOwnerName());
 	}
 	}	
 		

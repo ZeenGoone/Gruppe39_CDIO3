@@ -6,6 +6,7 @@ import controller.DiceCup;
 import entity.GameBoard;
 import entity.Player;
 
+
 public class GameController {
 	private static GameBoard gb;
 	private static GUIController gc;
@@ -41,8 +42,9 @@ public class GameController {
 			for(int j=0;j<playerArray.length;j++){
 				if(playerArray[j].isBankrupt())
 					continue;
+				gc.showMessage("Player" + (j+1) +  "click OK to roll");	
 				playRound(playerArray[j]);
-				gc.showMessage("Current tur: Player" + (j+1));	
+			
 			}
 			bankruptChecker();
 		}
@@ -70,7 +72,10 @@ public class GameController {
 
 		//afgører hvad der sker
 		gb.getField(p.getTotalSum()-1).landOnField(p);
-
+		
+		//Fortæller spilleren hvad han landte på
+		gc.showMessage(p.getPiece().getPlayerName()+"landed on " + gb.getField(p.getTotalSum()-1).getFieldName());
+		
 		//updater player score for alle spiller
 		for(int j=0;j<playerArray.length;j++){
 			gc.updatesPlayerScore(playerArray[j]);

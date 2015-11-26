@@ -88,6 +88,7 @@ public class GameController {
 		if(p.getBalance()<=0){
 			gc.showMessage(p.getPiece().getPlayerName() + "er gået kold ");
 			p.setBankrupt(true);
+			gc.remooveCar(p);
 			bankruptCounter++;
 		}
 			System.out.println(p.isBankrupt());

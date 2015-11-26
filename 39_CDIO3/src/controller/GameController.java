@@ -10,9 +10,11 @@ public class GameController {
 	private static GameBoard gb;
 	private static GUIController gc;
 	private static DiceCup dc;
-public static boolean  vinder = false;
+	public static boolean  vinder = false;
 	private static Player playerArray[];
+	private static int bankruptCounter = 0;
 	public static void main(String args[]){
+	
 
 		gb = new GameBoard();
 		gc = new GUIController(gb);
@@ -21,7 +23,7 @@ public static boolean  vinder = false;
 
 		// Finder ud af hvor mange spillere der er, og returnere det som en int
 
-		
+
 		int numberOfPlayers = gc.GUIbuttons5("How  many players", "2", "3", "4", "5", "6");
 
 		// Placere spillere ind i et array, og laver spillere tilsvarende til antallet Bruger har angivet
@@ -42,23 +44,23 @@ public static boolean  vinder = false;
 				playRound(playerArray[j]);
 				gc.showMessage("Current tur: Player" + (j+1));	
 			}
-
+			bankruptChecker();
 		}
 
 
 	}
 
 	public static void playRound(Player p){
-		
+
 		fjernAlt(p);
-		
+
 		//kaster med terning
 		dc.RollDices();
-		
+
 		//sætter ternings øjne på GUI
 		gc.setDices(dc);
-		
-		
+
+
 
 		// tilføjer slaget til spillerens totale sum
 		p.addTotalSum(dc.getSum());
@@ -68,14 +70,18 @@ public static boolean  vinder = false;
 
 		//afgører hvad der sker
 		gb.getField(p.getTotalSum()-1).landOnField(p);
-		
-		
-		//updater player score
-		gc.updatesPlayerScore(p);
-		if(p.getBalance()<=0)
-			p.setBankrupt(true);;
-		
-		System.out.println(p.isBankrupt());
+
+		//updater player score for alle spiller
+		for(int j=0;j<playerArray.length;j++){
+			gc.updatesPlayerScore(playerArray[j]);
+		}
+		//tjekker om nogle er gået bankerot og tælkler 1 om hvis de er
+		if(p.getBalance()<=0){
+			gc.showMessage(p.getPiece().getPlayerName() + "er gået kold ");
+			p.setBankrupt(true);
+			bankruptCounter++;
+		}
+			System.out.println(p.isBankrupt());
 	}
 
 	public static void movePiece(Player p, int field){
@@ -85,11 +91,13 @@ public static boolean  vinder = false;
 		gc.remooveCar(p);
 	}
 	//Leger med bankruptchecker
-//	public static void bankruptChecker(Player p){
-//		for(int j=0;j<playerArray.length;j++){
-//			if(p.isBankrupt())
-//			
-//		}
-//	}
+		public static void bankruptChecker(){
+			if(bankruptCounter>= playerArray.length-1){
+				vinder = true;
+				gc.closeGame();
+			}
+		}
+	
+	//	}
 
 }

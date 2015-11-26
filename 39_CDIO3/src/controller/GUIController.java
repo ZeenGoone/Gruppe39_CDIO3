@@ -85,7 +85,7 @@ Car car6 = setCar(Color.WHITE, Color.MAGENTA);
 		
 		for(int i = 0; i<=pn-1 ;i++){
 			carArray = new Car[]{car1,car2,car3,car4,car5,car6};
-			GUI.addPlayer("Player " + (i+1),30000,carArray[i]);
+			GUI.addPlayer("Player " + (i+1),3000,carArray[i]);
 		}
 		
 		return pn ;

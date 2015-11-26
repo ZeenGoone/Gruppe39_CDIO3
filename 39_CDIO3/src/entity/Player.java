@@ -4,7 +4,7 @@ public class Player {
 
 	// Initialiserer attributter
 	private static int maxPlayers = 0;
-	private int startAmount = 2000;
+	private int startAmount = 3000;
 	private Account account = new Account();
 	private Piece playerPiece;
 	private int totalSum;

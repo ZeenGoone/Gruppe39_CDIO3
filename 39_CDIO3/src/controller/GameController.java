@@ -39,7 +39,7 @@ public class GameController {
 
 
 		while(!vinder){
-			bankruptChecker();
+
 			for(int j=0;j<playerArray.length;j++){
 				if(playerArray[j].isBankrupt())
 					continue;
@@ -47,7 +47,7 @@ public class GameController {
 				playRound(playerArray[j]);
 			
 			}
-		
+					bankruptChecker();
 		}
 
 

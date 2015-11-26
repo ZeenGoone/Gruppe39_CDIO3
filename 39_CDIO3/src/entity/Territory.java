@@ -41,9 +41,14 @@ public class Territory extends Ownable {
 		}
 	}
 	else{
+		if(getOwner().getBalance()<=0){
+			System.out.println("owner is ded LOL");
+		}
+		else{
 		getOwner().updateBalance(getRent());
 		player.updateBalance(-getRent());
 		System.out.println(player.getPiece().getPlayerName() + "just payed" + getOwnerName());
+		}
 	}
 	}	
 		

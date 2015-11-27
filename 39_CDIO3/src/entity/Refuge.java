@@ -15,5 +15,12 @@ public class Refuge extends Field {
 		player.updateBalance(getBonus());
 		System.out.println(player.getPiece().getPlayerName() + " got bonus: " + bonus);
 	}
-	public int getBonus(){ return bonus; }
+	public int getBonus() {
+
+		if ( bonus < 0)	
+			bonus = 0; 
+
+		return bonus;
+	}
 }
+

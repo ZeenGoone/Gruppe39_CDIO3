@@ -15,7 +15,14 @@ public class GUIController {
 	private GameBoard g;	
 	private Field f;
 	private static Car[] carArray;
-
+	// Alle biler instantieres fra starten istedet for at køre afhængigt af antal spillere
+	private Car car1 = setCar(Color.ORANGE, Color.RED);
+	private Car car2 = setCar(Color.WHITE, Color.BLACK);
+	private Car car3 = setCar(Color.BLUE, Color.GRAY);
+	private Car car4 = setCar(Color.PINK, Color.GREEN);
+	private Car car5 = setCar(Color.CYAN, Color.BLACK);
+	private Car car6 = setCar(Color.WHITE, Color.MAGENTA);
+	
 	GUIController(GameBoard g){
 		this.g = g;
 	}
@@ -49,13 +56,6 @@ public class GUIController {
 				.secondaryColor(c2)
 				.build();
 	}
-
-	Car car1 = setCar(Color.ORANGE, Color.RED);
-	Car car2 = setCar(Color.WHITE, Color.BLACK);
-	Car car3 = setCar(Color.BLUE, Color.GRAY);
-	Car car4 = setCar(Color.PINK, Color.GREEN);
-	Car car5 = setCar(Color.CYAN, Color.BLACK);
-	Car car6 = setCar(Color.WHITE, Color.MAGENTA);
 
 	//sender en besked og knaptekster der sp�rger om hvor mange spillere der skal med
 	public int GUIbuttons5(String beskedtekst, String knaptekst1, String knaptekst2, String knaptekst3, String knaptekst4, String knaptekst5){

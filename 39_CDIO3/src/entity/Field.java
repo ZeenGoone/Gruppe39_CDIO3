@@ -19,19 +19,8 @@ public abstract class Field {
 
 	public abstract void landOnField(Player player);
 
-	public String getFieldName() {
-		return fieldName;
-	}
-
-	public Color getForgroundColor() {
-		return forgroundColor;
-	}
-
-	public Color getBackgroundColor() {
-		return backgroundColor;
-	}
-
-	public String getDescription() {
-		return description;
-	}
+	public String getFieldName() { return fieldName; }
+	public Color getForgroundColor() { return forgroundColor; }
+	public Color getBackgroundColor() { return backgroundColor;	}
+	public String getDescription() { return description; }
 }

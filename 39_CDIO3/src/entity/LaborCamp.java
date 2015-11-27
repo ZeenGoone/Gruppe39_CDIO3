@@ -8,7 +8,7 @@ import desktop_resources.GUI;
 public class LaborCamp  extends Ownable {
 
 	private int rent;
-	private  DiceCup dc;
+	private DiceCup dc;
 
 	public LaborCamp(String fieldName, Color forgroundColor, Color backgroundColor, String description, int price,
 			Player owner,  int rent, boolean isOwned) {
@@ -18,19 +18,13 @@ public class LaborCamp  extends Ownable {
 	}
 
 	@Override
-	public int getRent() {
-		return rent;
-	}
-
-	public void setRent(int rent){
-		this.rent = rent;
-	}
+	public int getRent() { return rent;	}
+	public void setRent(int rent){ this.rent = rent; }
 
 	@Override
 	public void landOnField(Player player) {
 		//hvis feltet ikke er ejet
 		if(!getOwned()){
-
 			//tjekker om spilleren har r�d
 			if(player.getBalance()>= getPrice()){
 				//s�tter ham som ejer og tager penge

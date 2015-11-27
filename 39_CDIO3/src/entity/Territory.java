@@ -26,7 +26,7 @@ public class Territory extends Ownable {
 				setOwner(player);
 				player.updateBalance(-getPrice());
 				setOwned(true);
-				System.out.println(player.getPiece().getPlayerName() + "just bought" + getFieldName());
+				System.out.println(player.getPiece().getPlayerName() + " just bought " + getFieldName());
 			}
 		}
 		else{
@@ -36,7 +36,7 @@ public class Territory extends Ownable {
 			else{
 				getOwner().updateBalance(getRent());
 				player.updateBalance(-getRent());
-				System.out.println(player.getPiece().getPlayerName() + "just payed" + getOwnerName());
+				System.out.println(player.getPiece().getPlayerName() + " just payed " + getOwnerName());
 			}
 		}
 	}	

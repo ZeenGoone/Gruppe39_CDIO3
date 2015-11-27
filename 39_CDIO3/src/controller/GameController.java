@@ -36,7 +36,7 @@ public class GameController {
 			for(int j=0;j<playerArray.length;j++){
 				if(playerArray[j].isBankrupt())
 					continue;
-				gc.showMessage("Player" + (j+1) +  "click OK to roll");	
+				gc.showMessage("Player " + (j+1) +  " click OK to roll");	
 				playRound(playerArray[j]);
 			}
 			bankruptChecker();
@@ -68,11 +68,11 @@ public class GameController {
 		}
 
 		//Fort�ller spilleren hvad han landte p�
-		gc.showMessage(p.getPiece().getPlayerName()+"landed on " + gb.getField(p.getTotalSum()-1).getFieldName());
+		gc.showMessage(p.getPiece().getPlayerName()+" landed on " + gb.getField(p.getTotalSum()-1).getFieldName());
 
 		//tjekker om nogle er g�et bankerot og t�lkler 1 om hvis de er
-		if(p.getBalance()<=0){
-			gc.showMessage(p.getPiece().getPlayerName() + "er g�et kold ");
+		if(p.getBalance() < 0){
+			gc.showMessage(p.getPiece().getPlayerName() + " er bankerot ");
 			p.setBankrupt(true);
 			gc.remooveCar(p);
 			bankruptCounter++;

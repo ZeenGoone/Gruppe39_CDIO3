@@ -4,7 +4,6 @@ public class Player {
 
 	// Initialiserer attributter
 	private static int maxPlayers = 0;
-	private int startAmount = 3000;
 	private Account account = new Account();
 	private Piece playerPiece;
 	private int totalSum;
@@ -16,7 +15,7 @@ public class Player {
 	public Player(){
 		++maxPlayers;
 		playerPiece = new Piece(maxPlayers);
-		setBalance(startAmount);
+		setBalance(account.getBalance());
 	}
 	public int getTotalSum() {
 		if(totalSum>21){

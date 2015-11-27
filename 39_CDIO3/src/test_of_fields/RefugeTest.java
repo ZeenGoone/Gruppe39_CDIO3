@@ -1,4 +1,4 @@
-package test;
+package test_of_fields;
 
 import static org.junit.Assert.*;
 

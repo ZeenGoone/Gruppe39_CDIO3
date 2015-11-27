@@ -1,19 +1,20 @@
-package test;
+package test_of_fields;
 
 import static org.junit.Assert.*;
 
 import java.awt.Color;
 
-import entity.Territory;
+import entity.Fleet;
+import entity.Fleet;
 import entity.Player;
 import org.junit.*;
 
-public class TerritoryTest {
+public class FleetTest {
 
 	private Player player1;
 	private Player player2;
-	private Territory Territory2000Buy;
-	private Territory Territory300Rent;
+	private Fleet Fleet4000Buy;
+	private Fleet Fleet300Rent;
 
 
 	@Before
@@ -23,9 +24,9 @@ public class TerritoryTest {
 		this.player1 = new Player("Anders And", 1, 5000);
 		this.player2 = new Player("Gooby and Mockey", 2, 5000);
 
-		this.Territory2000Buy = new Territory("Tribe Encampment", Color.PINK, Color.ORANGE,"Territory, Costs 2000",2000,null,300, false);
+		this.Fleet4000Buy = new Fleet("Second Sail",Color.GRAY,Color.ORANGE,"Fleet, costs 4000",4000,null,false);
 
-		this.Territory300Rent = new Territory("Tribe Encampment", Color.PINK, Color.ORANGE,"Territory, Costs 2000",2000,null,300, true);
+		this.Fleet300Rent = new Fleet("Second Sail",Color.GRAY,Color.ORANGE,"Fleet, costs 4000",4000,null,false);
 
 	}
 
@@ -45,20 +46,20 @@ public class TerritoryTest {
 
 		Assert.assertNotNull(this.player1);
 
-		Assert.assertNotNull(this.Territory2000Buy);
+		Assert.assertNotNull(this.Fleet4000Buy);
 
-		Assert.assertNotNull(this.Territory300Rent);
+		Assert.assertNotNull(this.Fleet300Rent);
 
-		Assert.assertTrue(this.Territory2000Buy instanceof Territory);
+		Assert.assertTrue(this.Fleet4000Buy instanceof Fleet);
 
-		Assert.assertTrue(this.Territory300Rent instanceof Territory);
+		Assert.assertTrue(this.Fleet300Rent instanceof Fleet);
 
 
 	}
 
 	@Test
 
-	public void testLandOnFieldBuy2000() {
+	public void testLandOnFieldBuy4000() {
 
 		int expected = 5000;
 
@@ -68,9 +69,9 @@ public class TerritoryTest {
 
 		//Perform the action to be tested
 
-		this.Territory2000Buy.landOnField(this.player1);
+		this.Fleet4000Buy.landOnField(this.player1);
 
-		expected = 5000 - 2000;
+		expected = 5000 - 4000;
 
 		actual = this.player1.getBalance();
 
@@ -90,11 +91,11 @@ public class TerritoryTest {
 
 		//Perform the action to be tested
 
-		this.Territory2000Buy.landOnField(this.player1);
+		this.Fleet4000Buy.landOnField(this.player1);
 
-		this.Territory2000Buy.landOnField(this.player1);
+		this.Fleet4000Buy.landOnField(this.player1);
 
-		expected = 5000 -2000-0;
+		expected = 5000 -4000-0;
 
 		actual = this.player1.getBalance();
 
@@ -109,22 +110,24 @@ public class TerritoryTest {
 
 		int expected1 = 5000;
 		int actual1 = this.player1.getBalance();
-		
 		int expected2 = 5000;
 		int actual2 = this.player2.getBalance();
 
 		Assert.assertEquals(expected1, actual1);
 		Assert.assertEquals(expected2, actual2);
 		//Perform the action to be tested
-		this.Territory300Rent.landOnField(this.player1);
-		this.Territory300Rent.landOnField(this.player2);
+		this.Fleet300Rent.landOnField(this.player1);
+		this.Fleet300Rent.landOnField(this.player2);
 		
-		expected1= 5000-2000+300;
-		expected2 = 5000-300;
+		expected1= 5000-4000+500;
+		expected2 = 5000-500;
 
 		actual1 = this.player1.getBalance();
 		actual2 = this.player2.getBalance();
-
+		
+		System.out.println(actual1);
+		System.out.println(actual2);
+		
 		Assert.assertEquals(expected1, actual1);
 		Assert.assertEquals(expected2, actual2);
 

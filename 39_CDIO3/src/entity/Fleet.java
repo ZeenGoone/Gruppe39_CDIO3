@@ -29,7 +29,11 @@ public class Fleet extends Ownable {
 		//Hvis feltet er koebt, betales Player til ejer
 		else {
 			if(getOwner().getBalance()<=0){
+				if(player.getBalance()>= getPrice()){
+					setOwner(player);
+					player.updateBalance(-getPrice());
 				System.out.println("owner is ded LOL");
+				}
 			}
 			else{
 				getOwner().updateBalance(getRent());

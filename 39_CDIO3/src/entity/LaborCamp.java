@@ -37,12 +37,16 @@ public class LaborCamp  extends Ownable {
 		}
 		else{
 			if(getOwner().getBalance()<=0){
+				if(player.getBalance()>= getPrice()){
+					setOwner(player);
+					player.updateBalance(-getPrice());
 				System.out.println("owner is ded LOL");
+				}
 			}
 			else{
 				dc = new DiceCup();
 				dc.RollDices();
-				GUI.showMessage("You rolled : " + dc.getSum());
+				//GUI.showMessage("You rolled : " + dc.getSum());
 				getOwner().updateBalance((getRent())*(dc.getSum())*(getOwner().getLaborCampCount()));
 				System.out.println(getRent()*(dc.getSum())*(getOwner().getLaborCampCount()));
 				player.updateBalance(-((getRent())*(dc.getSum())*(getOwner().getLaborCampCount())));

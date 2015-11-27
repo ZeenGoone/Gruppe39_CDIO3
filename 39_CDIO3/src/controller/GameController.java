@@ -40,9 +40,9 @@ public class GameController {
 			bankruptChecker();
 		}
 	}
-
+	
 	public static void playRound(Player p){
-
+	
 		fjernAlt(p);
 
 		//kaster med terning

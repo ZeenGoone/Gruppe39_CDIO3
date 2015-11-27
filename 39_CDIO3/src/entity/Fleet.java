@@ -26,31 +26,22 @@ public class Fleet extends Ownable {
 				getOwner().addFleetsOwned();
 			}
 		}
-		//Hvis feltet er koebt, betales Player til ejer
+		//Hvis feltet er koebt, betales hyre til ejer
 		else {
-			if(getOwner().getBalance()<=0){
-				if(player.getBalance()>= getPrice()){
-					setOwner(player);
-					player.updateBalance(-getPrice());
-				System.out.println("owner is ded LOL");
-				}
-			}
-			else{
-				getOwner().updateBalance(getRent());
-				player.updateBalance(-getRent());
-			}
+			player.updateBalance(-getRent());
+			getOwner().updateBalance(getRent());
 		}	
 	}
 	//Bestemmelse af rent for fleet feltet
 	@Override
 	public int getRent() {
-		if ( getOwner().getFleetCount() == 1) 
-			return rent1;
-		else if ( getOwner().getFleetCount() == 2) 
-			return rent2;
-		else if ( getOwner().getFleetCount() == 3) 
-			return rent3;
-		else  
-			return rent4;
+		System.out.println("rammer getRent");
+		switch(getOwner().getFleetCount()){
+		case 1: return rent1;
+		case 2: return rent2;
+		case 3: return rent3;
+		case 4: return rent4;
+		}
+		return rent1;
 	}
 }

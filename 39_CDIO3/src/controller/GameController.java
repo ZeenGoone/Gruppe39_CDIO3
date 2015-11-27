@@ -43,7 +43,7 @@ public class GameController {
 	
 	public static void playRound(Player p){
 	
-		fjernAlt(p);
+		removePiece(p);
 
 		//kaster med terning
 		dc.RollDices();
@@ -76,14 +76,15 @@ public class GameController {
 			bankruptCounter++;
 		}
 	}
-
+		//flytter en spillers brik
 	public static void movePiece(Player p, int field){
 		gc.placePiece(p, field);
 	}
-	public static void fjernAlt(Player p){
+	// fjerner en spillers brik
+	public static void removePiece(Player p){
 		gc.remooveCar(p);
 	}
-	//Leger med bankruptchecker
+	//tjekker om nogle spiller er gået bankrupt og lukker, hvis alle på nær 1 er
 	public static void bankruptChecker(){
 		if(bankruptCounter>= playerArray.length-1){
 			vinder = true;

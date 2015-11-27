@@ -129,7 +129,36 @@ public class TerritoryTest {
 		Assert.assertEquals(expected2, actual2);
 
 	}
+	@Test
+	public void testLandOnDeadOwnedField() {
 
+		int expected1 = 5000;
+		int actual1 = this.player1.getBalance();
+		
+		int expected2 = 5000;
+		int actual2 = this.player2.getBalance();
+
+		Assert.assertEquals(expected1, actual1);
+		Assert.assertEquals(expected2, actual2);
+		//Player 1 lands on a field and buys it
+		this.Territory300Rent.landOnField(this.player1);
+		//Now player goes bankrupt
+		player1.setBalance(-5500);
+		//player 2 lands on same field, should now be able to buy
+		this.Territory300Rent.landOnField(this.player2);
+		
+		// player 2 should now buy the field which costs 2000
+		expected1= -5500;
+		expected2 = 5000-2000;
 	
+		
+		actual1 = this.player1.getBalance();
+		actual2 = this.player2.getBalance();
+		
+		Assert.assertEquals(expected1, actual1);
+		Assert.assertEquals(expected2, actual2);
+
+	}
+
 
 }

@@ -1,6 +1,7 @@
 package entity;
 
 import java.awt.Color;
+import java.util.Arrays;
 
 public class GameBoard {
 
@@ -34,4 +35,9 @@ public class GameBoard {
 	public Field getField  (int fieldNumber){
 		return  gameboard[fieldNumber];
 	}
+
+
+	
+
+	
 }

@@ -7,13 +7,10 @@ import desktop_fields.Street;
 import desktop_resources.GUI;
 import entity.Player;
 import entity.GameBoard;
-import entity.Player;
-import controller.GameController;
 
 public class GUIController {
 
 	private GameBoard g;	
-	private Field f;
 	private static Car[] carArray;
 	// Alle biler instantieres fra starten istedet for at køre afhængigt af antal spillere
 	private Car car1 = setCar(Color.ORANGE, Color.RED);
@@ -83,11 +80,11 @@ public class GUIController {
 	public void placePiece(Player p, int field){
 		GUI.setCar(field, p.getPiece().getPlayerName());
 	}
-
+	//viser besked
 	public void showMessage(String besked){
 		GUI.showMessage(besked);
 	}
-
+	// fjener brik
 	public void RemovePiece(Player p, int field){
 		// removes car 
 		GUI.removeCar(field, p.getPiece().getPlayerName());
@@ -96,7 +93,7 @@ public class GUIController {
 	public void remooveCar(Player p){
 		GUI.removeAllCars(p.getPiece().getPlayerName());
 	}
-
+	//slutter brik
 	public void closeGame(){
 		GUI.close();
 	}

@@ -32,16 +32,13 @@ public abstract class Ownable extends Field {
 	public String getOwnerName( ){
 		return owner.getPiece().getPlayerName();
 	}
-	
 	public void setOwner (Player owner) {
 		this.owner = owner;
 	}
-
 	public boolean getOwned() {
 		return isOwned;
 	}
 	public void setOwned(boolean isOwned) {
 		this.isOwned = isOwned;
 	}
-
 }

@@ -15,20 +15,12 @@ public class Tax extends Field {
 		this.description = description;
 		this.alternative = alternative;
 	}
-
-
 	public void landOnField(Player player) {
-
-
 		//Spilleren betaler enten 10% af Balance eller 4000, alt efter hvad der koster ham mindst
-
-
-
 		if (alternative) {
 			if(((player.getBalance())/10) >= getPrice()){
 				player.updateBalance(-getPrice());
 				System.out.println(description);
-
 			}
 			else{
 				if(((player.getBalance())/10) < getPrice()){
@@ -42,16 +34,6 @@ public class Tax extends Field {
 			System.out.println(description);
 		}
 	}	
-
-
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-
-
+	public int getPrice() {	return price; }
+	public void setPrice(int price) { this.price = price; }
 }
-

@@ -15,10 +15,10 @@ public class Fleet extends Ownable {
 		super(fieldName, price, foregroundColor, backColor, description, owner, isowned);
 	}
 
-	//Hvad sker når man lander på dette felt
+	//Hvad sker nï¿½r man lander pï¿½ dette felt
 	@Override
 	public void landOnField(Player player){
-		//Hvis felt ikke er koebt, bliver feltet købt automatisk
+		//Hvis felt ikke er koebt, bliver feltet kï¿½bt automatisk
 		if (!getOwned()) {
 			if(player.getBalance() >= getPrice()) {
 				setOwner(player);
@@ -32,10 +32,10 @@ public class Fleet extends Ownable {
 				System.out.println("owner is ded LOL");
 			}
 			else{
-			getOwner().updateBalance(getRent());
-			player.updateBalance(-getRent());
-		}
-	}	
+				getOwner().updateBalance(getRent());
+				player.updateBalance(-getRent());
+			}
+		}	
 	}
 	//Bestemmelse af rent for fleet feltet
 	@Override
@@ -49,5 +49,4 @@ public class Fleet extends Ownable {
 		else  
 			return rent4;
 	}
-	
 }

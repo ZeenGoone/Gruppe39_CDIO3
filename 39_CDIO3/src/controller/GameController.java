@@ -15,7 +15,6 @@ public class GameController {
 	private static Player playerArray[];
 	private static int bankruptCounter = 0;
 	public static void main(String args[]){
-	
 
 		gb = new GameBoard();
 		gc = new GUIController(gb);
@@ -23,34 +22,25 @@ public class GameController {
 		gc.startGame();	
 
 		// Finder ud af hvor mange spillere der er, og returnere det som en int
-
-
 		int numberOfPlayers = gc.GUIbuttons5("How  many players", "2", "3", "4", "5", "6");
 
 		// Placere spillere ind i et array, og laver spillere tilsvarende til antallet Bruger har angivet
-
 		playerArray = new Player[numberOfPlayers];
-
 		for (int i = 0 ; i <= numberOfPlayers - 1 ; i++) {
 			playerArray[i] = new Player();
 
 			System.out.println("Vi har Spiller: " + (i+1));
 		}
 
-
 		while(!vinder){
-
 			for(int j=0;j<playerArray.length;j++){
 				if(playerArray[j].isBankrupt())
 					continue;
 				gc.showMessage("Player" + (j+1) +  "click OK to roll");	
 				playRound(playerArray[j]);
-			
 			}
-					bankruptChecker();
+			bankruptChecker();
 		}
-
-
 	}
 
 	public static void playRound(Player p){
@@ -60,38 +50,34 @@ public class GameController {
 		//kaster med terning
 		dc.RollDices();
 
-		//sætter ternings øjne på GUI
+		//sï¿½tter ternings ï¿½jne pï¿½ GUI
 		gc.setDices(dc);
 
-
-
-		// tilføjer slaget til spillerens totale sum
+		// tilfï¿½jer slaget til spillerens totale sum
 		p.addTotalSum(dc.getSum());
 
-		//rykker spillerens brik, så langt som spilleren har slået
+		//rykker spillerens brik, sï¿½ langt som spilleren har slï¿½et
 		movePiece(p,p.getTotalSum());
 
-		//afgører hvad der sker
+		//afgï¿½rer hvad der sker
 		gb.getField(p.getTotalSum()-1).landOnField(p);
-		
-		
+
 		//updater player score for alle spiller
 		for(int j=0;j<playerArray.length;j++){
 			gc.updatesPlayerScore(playerArray[j]);
 		}
-		
-		//Fortæller spilleren hvad han landte på
+
+		//Fortï¿½ller spilleren hvad han landte pï¿½
 		gc.showMessage(p.getPiece().getPlayerName()+"landed on " + gb.getField(p.getTotalSum()-1).getFieldName());
-		
-		
-		//tjekker om nogle er gået bankerot og tælkler 1 om hvis de er
+
+		//tjekker om nogle er gï¿½et bankerot og tï¿½lkler 1 om hvis de er
 		if(p.getBalance()<=0){
-			gc.showMessage(p.getPiece().getPlayerName() + "er gået kold ");
+			gc.showMessage(p.getPiece().getPlayerName() + "er gï¿½et kold ");
 			p.setBankrupt(true);
 			gc.remooveCar(p);
 			bankruptCounter++;
 		}
-			System.out.println(p.isBankrupt());
+		System.out.println(p.isBankrupt());
 	}
 
 	public static void movePiece(Player p, int field){
@@ -101,13 +87,10 @@ public class GameController {
 		gc.remooveCar(p);
 	}
 	//Leger med bankruptchecker
-		public static void bankruptChecker(){
-			if(bankruptCounter>= playerArray.length-1){
-				vinder = true;
-				gc.closeGame();
-			}
+	public static void bankruptChecker(){
+		if(bankruptCounter>= playerArray.length-1){
+			vinder = true;
+			gc.closeGame();
 		}
-	
-	//	}
-
+	}
 }

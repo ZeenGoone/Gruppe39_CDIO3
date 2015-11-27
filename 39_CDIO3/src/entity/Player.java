@@ -17,6 +17,12 @@ public class Player {
 		playerPiece = new Piece(maxPlayers);
 		setBalance(account.getBalance());
 	}
+	// Constructor for testing purposes
+	public Player(String name, int playernumber, int startfunds) {
+		playerPiece = new Piece(playernumber);
+		account.setBalance(startfunds);
+	}
+	
 	public int getTotalSum() {
 		if(totalSum>21){
 			this.totalSum = totalSum-21;

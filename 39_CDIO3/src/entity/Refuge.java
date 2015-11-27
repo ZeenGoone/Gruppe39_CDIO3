@@ -13,8 +13,7 @@ public class Refuge extends Field {
 	@Override
 	public void landOnField(Player player) {
 		player.updateBalance(getBonus());
-		System.out.println(player.getPiece().getPlayerName() + "got bonus:" + bonus);
-
+		System.out.println(player.getPiece().getPlayerName() + " got bonus: " + bonus);
 	}
 	public int getBonus(){ return bonus; }
 }

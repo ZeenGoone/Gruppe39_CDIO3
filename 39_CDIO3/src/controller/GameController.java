@@ -28,8 +28,6 @@ public class GameController {
 		playerArray = new Player[numberOfPlayers];
 		for (int i = 0 ; i <= numberOfPlayers - 1 ; i++) {
 			playerArray[i] = new Player();
-
-			System.out.println("Vi har Spiller: " + (i+1));
 		}
 
 		while(!vinder){
@@ -77,7 +75,6 @@ public class GameController {
 			gc.remooveCar(p);
 			bankruptCounter++;
 		}
-		System.out.println(p.isBankrupt());
 	}
 
 	public static void movePiece(Player p, int field){

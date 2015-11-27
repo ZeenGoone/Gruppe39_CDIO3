@@ -7,6 +7,10 @@ import desktop_resources.GUI;
 
 public class LaborCamp  extends Ownable {
 
+	// for testing only:
+	private int diceSum;
+	
+	// initializing attributes
 	private int rent;
 	private DiceCup dc;
 
@@ -46,13 +50,17 @@ public class LaborCamp  extends Ownable {
 			else{
 				dc = new DiceCup();
 				dc.RollDices();
+				diceSum = dc.getSum();
 				GUI.showMessage("You rolled : " + dc.getSum());
 				getOwner().updateBalance((getRent())*(dc.getSum())*(getOwner().getLaborCampCount()));
-				System.out.println(getRent()*(dc.getSum())*(getOwner().getLaborCampCount()));
-				player.updateBalance(-((getRent())*(dc.getSum())*(getOwner().getLaborCampCount())));
+				player.updateBalance(-(getRent())*(dc.getSum())*(getOwner().getLaborCampCount()));
 				System.out.println("The dices rolled a total of " + dc.getSum());
-				System.out.println(player.getPiece().getPlayerName() + " just payed " + getOwnerName());
+				System.out.println(player.getPiece().getPlayerName() + " just payed " + getOwnerName() + " " + (getRent())*(dc.getSum())*(getOwner().getLaborCampCount()));
 			}
 		}	
+	}
+	// for testing purposes only
+	public int getLaborDiceRoll(){
+		return diceSum;
 	}
 }

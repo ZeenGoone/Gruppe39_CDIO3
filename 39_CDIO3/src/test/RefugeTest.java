@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.awt.Color;
+
 import entity.Refuge;
 import entity.Player;
 import org.junit.*;
@@ -22,11 +24,11 @@ public class RefugeTest {
 
 		this.player = new Player("Anders And", 1, 1000);
 
-		this.refuge200 = new Refuge(1, "Helle +200", 200);
+		this.refuge200 = new Refuge("Monastery", Color.BLUE, Color.YELLOW,"Refuge, you get 200",200);
 
-		this.refuge0 = new Refuge(2, "Helle 0", 0);
+		this.refuge0 = new Refuge("Monastery", Color.BLUE, Color.YELLOW,"Refuge, you get 0",0);
 
-		this.refugeNeg200 = new Refuge(3, "Helle ­200", ­200);
+		this.refugeNeg200 = new Refuge("Monastery", Color.BLUE, Color.YELLOW,"Refuge, you get -200", -200);
 
 	}
 

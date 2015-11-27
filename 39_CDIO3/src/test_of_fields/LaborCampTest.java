@@ -79,6 +79,7 @@ public class LaborCampTest {
 
 	@Test
 	public void testLandOnOwnedField() {
+		LaborCampown1.setTesting(true);
 		int expected1 = 5000;
 		int actual1 = this.player1.getBalance();
 		int expected2 = 5000;

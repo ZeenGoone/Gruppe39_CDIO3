@@ -9,6 +9,7 @@ public class LaborCamp  extends Ownable {
 
 	// for testing only:
 	private int diceSum;
+	private static boolean testing = false;
 	
 	// initializing attributes
 	private int rent;
@@ -36,7 +37,6 @@ public class LaborCamp  extends Ownable {
 				player.updateBalance(-getPrice());
 				setOwned(true);
 				getOwner().addLaborCampsOwned();
-				System.out.println(player.getPiece().getPlayerName() + " just bought " + getFieldName());
 			}
 		}
 		else{
@@ -44,23 +44,23 @@ public class LaborCamp  extends Ownable {
 				if(player.getBalance()>= getPrice()){
 					setOwner(player);
 					player.updateBalance(-getPrice());
-				System.out.println("owner is ded LOL");
 				}
 			}
 			else{
 				dc = new DiceCup();
 				dc.RollDices();
 				diceSum = dc.getSum();
-				GUI.showMessage("You rolled : " + dc.getSum());
+				if(!testing){ GUI.showMessage("You rolled : " + dc.getSum()); }
 				getOwner().updateBalance((getRent())*(dc.getSum())*(getOwner().getLaborCampCount()));
 				player.updateBalance(-(getRent())*(dc.getSum())*(getOwner().getLaborCampCount()));
-				System.out.println("The dices rolled a total of " + dc.getSum());
-				System.out.println(player.getPiece().getPlayerName() + " just payed " + getOwnerName() + " " + (getRent())*(dc.getSum())*(getOwner().getLaborCampCount()));
 			}
 		}	
 	}
 	// for testing purposes only
 	public int getLaborDiceRoll(){
 		return diceSum;
+	}
+	public static void setTesting(boolean test){
+		testing = test;
 	}
 }

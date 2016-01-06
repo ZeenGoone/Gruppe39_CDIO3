@@ -23,7 +23,7 @@ public class Fleet extends Ownable {
 			if(player.getBalance() >= getPrice()) {
 				setOwner(player);
 				player.updateBalance(-getPrice());
-				getOwner().addFleetsOwned();
+				getOwner().addFerryOwned();
 			}
 		}
 		//Hvis feltet er koebt, betales hyre til ejer
@@ -36,7 +36,7 @@ public class Fleet extends Ownable {
 	@Override
 	public int getRent() {
 		System.out.println("rammer getRent");
-		switch(getOwner().getFleetCount()){
+		switch(getOwner().getFerryCount()){
 		case 1: return rent1;
 		case 2: return rent2;
 		case 3: return rent3;

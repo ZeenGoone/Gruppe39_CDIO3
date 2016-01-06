@@ -8,7 +8,7 @@ public class Player {
 	private Piece playerPiece;
 	private int totalSum;
 	private boolean isBankrupt = false;
-	private int fleetCount;
+	private int ferryCount;
 	private int laborCampCount;
 
 	// Konstruktoer tae�ller maxspillere 1 op og en brik bliver tildelt med et spillernummer
@@ -30,7 +30,7 @@ public class Player {
 		return totalSum;
 	}
 	public Piece getPiece(){ return this.playerPiece; }
-	public int getFleetCount() { return fleetCount;	}
+	public int getFerryCount() { return ferryCount;	}
 	public int getLaborCampCount() { return laborCampCount;	}
 	public int getBalance(){ return account.getBalance(); }
 	public int updateBalance(int updating){	return account.addBalance(updating); }
@@ -38,6 +38,6 @@ public class Player {
 	public void setBankrupt(boolean isBankrupt) { this.isBankrupt = isBankrupt;	}
 	public void setBalance(int value){ account.setBalance(value); }
 	public void addLaborCampsOwned() { this.laborCampCount++; }
-	public void addFleetsOwned() { this.fleetCount++; }
+	public void addFerryOwned() { this.ferryCount++; }
 	public void addTotalSum(int totalSum) {	this.totalSum += totalSum; }
 }
